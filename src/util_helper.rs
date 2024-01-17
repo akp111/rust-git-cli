@@ -1,9 +1,10 @@
+use colored::*;
 use std::io;
 
 pub fn get_branch_from_user() -> String {
     // name of the branch, default is main
-    println!("Enter the branch name, default is main");
-    let mut default_branch = String::from("main");
+    println!("{}", "Enter the branch name, default is main".green());
+    let default_branch = String::from("main");
     let mut branch = String::new();
     io::stdin()
         .read_line(&mut branch)
@@ -16,7 +17,7 @@ pub fn get_branch_from_user() -> String {
 }
 
 pub fn get_commit_message_from_user() -> String {
-    println!("Enter thecommit message");
+    println!("{}", "Enter the commit message".green());
     // ask the user to get the commit message;
     let mut commit_msg = String::new();
     io::stdin()
@@ -24,7 +25,7 @@ pub fn get_commit_message_from_user() -> String {
         .expect("Failed to read line");
     let commit_msg = commit_msg.trim();
     if commit_msg.is_empty() {
-        panic!("Commit message cannot be empty");
+        panic!("{}", "Commit message cannot be empty".red());
     }
     return commit_msg.to_string();
 }

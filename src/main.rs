@@ -1,3 +1,5 @@
+use colored::Colorize;
+
 pub mod git_helper;
 pub mod util_helper;
 
@@ -9,6 +11,6 @@ fn run_git() {
     git_helper::git_push(&branch);
 }
 fn main() {
-    println!("Welcome to GIT CLI!!");
+    println!("{}","Welcome to GIT CLI!!".bright_green());
     run_git();
 }
