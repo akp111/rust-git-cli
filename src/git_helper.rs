@@ -6,7 +6,7 @@ pub fn git_add() {
         .output()
         .expect("Something went wrong while adding");
     if !add_status.status.success() {
-        panic!("{:?}", String::from_utf8(add_status.stderr));
+        panic!("{:?}", String::from_utf8(add_status.stderr).unwrap());
     }
 }
 
@@ -16,7 +16,7 @@ pub fn git_commit(message: String) {
         .output()
         .expect("Something went wrong while commiting");
     if !commit_status.status.success() {
-        panic!("{:?}", String::from_utf8(commit_status.stderr));
+        panic!("{:?}", String::from_utf8(commit_status.stderr).unwrap());
     }
 }
 
@@ -26,6 +26,6 @@ pub fn git_push(branch: String) {
         .output()
         .expect("Something went wrong while pushing");
     if !push_status.status.success() {
-        panic!("{:?}", String::from_utf8(push_status.stderr));
+        panic!("{:?}", String::from_utf8(push_status.stderr).unwrap());
     }
 }
