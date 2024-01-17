@@ -4,7 +4,7 @@ pub mod git_helper;
 pub mod util_helper;
 
 fn run_git() {
-    let branch = util_helper::get_branch_from_user();
+    let branch = git_helper::get_current_branch();
     let commit_message = util_helper::get_commit_message_from_user();
     git_helper::git_add();
     git_helper::git_commit(&commit_message);
@@ -12,5 +12,5 @@ fn run_git() {
 }
 fn main() {
     println!("{}","Welcome to GIT CLI!!".bright_green());
-    run_git();;
+    run_git();
 }
