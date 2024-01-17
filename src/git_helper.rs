@@ -20,7 +20,7 @@ pub fn git_pull(branch: &str) {
     if !pull_status.status.success() {
         panic!("{:?}", String::from_utf8(pull_status.stderr).unwrap());
     }
-    println!("{0} {1}", "Successfully pull from the branch".bright_yellow(), branch.bright_yellow());
+    println!("{0} {1}", "Successfully pull from the branch: ".bright_yellow(), branch.bright_yellow());
 }
 
 pub fn get_current_branch() -> String {
