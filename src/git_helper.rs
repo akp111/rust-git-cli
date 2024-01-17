@@ -10,6 +10,16 @@ pub fn git_add() {
     }
 }
 
+pub fn git_pull(branch: &str) {
+    let pull_status = Command::new("git")
+        .args(["pull", "origin", branch])
+        .output()
+        .expect("Something went wrong while pulling");
+    if !pull_status.status.success() {
+        panic!("{:?}", String::from_utf8(pull_status.stderr).unwrap());
+    }
+}
+
 pub fn get_current_branch() -> String {
     let branch_name = Command::new("git")
         .args(["name-rev", "--name-only", "HEAD"])
@@ -18,7 +28,10 @@ pub fn get_current_branch() -> String {
     if !branch_name.status.success() {
         panic!("{:?}", String::from_utf8(branch_name.stderr).unwrap());
     }
-    return String::from_utf8(branch_name.stdout).unwrap().trim().to_owned();
+    return String::from_utf8(branch_name.stdout)
+        .unwrap()
+        .trim()
+        .to_owned();
 }
 
 pub fn git_commit(message: &str) {
