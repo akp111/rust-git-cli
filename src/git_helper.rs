@@ -27,6 +27,7 @@ pub fn git_push(branch: &str) {
         .output()
         .expect("Something went wrong while pushing");
     if !push_status.status.success() {
-        panic!("{:?}", String::from_utf8(push_status.stderr).unwrap().red());
+        println!("{:?}", String::from_utf8(push_status.stderr).unwrap().red());
+        panic!();
     }
 }
