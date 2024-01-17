@@ -58,4 +58,5 @@ pub fn git_push(branch: &str) {
     if !push_status.status.success() {
         panic!("{:?}", String::from_utf8(push_status.stderr).unwrap());
     }
+    println!("{0} {1}","Succesfuuly pushed to the branch: ".bright_green(), branch.yellow());
 }

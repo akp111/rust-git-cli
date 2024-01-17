@@ -10,8 +10,6 @@ fn run_git() {
     git_helper::git_add();
     git_helper::git_commit(&commit_message);
     git_helper::git_push(&branch);
-    println!("{0} {1}","Succesfuuly pushed to the branch: ".bright_green(), branch.yellow());
-
 }
 fn main() {
     println!("{}","Welcome to GIT CLI!!".bright_green());
