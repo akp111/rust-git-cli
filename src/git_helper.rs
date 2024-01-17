@@ -12,8 +12,6 @@ pub fn git_commit(message: String) {
         .args(["commit", "-m", &message])
         .output()
         .expect("Something went wrong while commiting");
-    println!("{:?}", commit_status);
-    println!("{:?}", commit_status.status.success());
 }
 
 pub fn git_push(branch: String) {
