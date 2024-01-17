@@ -1,4 +1,5 @@
 use std::process::Command;
+use colored::Colorize;
 
 pub fn git_add() {
     let add_status = Command::new("git")
@@ -8,7 +9,7 @@ pub fn git_add() {
     if !add_status.status.success() {
         panic!("{:?}", String::from_utf8(add_status.stderr).unwrap());
     }
-    println!("{}", "Successfully staged");
+    println!("{}", "Successfully staged".bright_yellow());
 }
 
 pub fn git_pull(branch: &str) {
@@ -19,7 +20,7 @@ pub fn git_pull(branch: &str) {
     if !pull_status.status.success() {
         panic!("{:?}", String::from_utf8(pull_status.stderr).unwrap());
     }
-    println!("{0} {1}", "Successfully pull from the branch", branch);
+    println!("{0} {1}", "Successfully pull from the branch".bright_yellow(), branch.bright_yellow());
 }
 
 pub fn get_current_branch() -> String {
@@ -34,7 +35,7 @@ pub fn get_current_branch() -> String {
         .unwrap()
         .trim()
         .to_owned();
-    println!("{0} {1}", "Current branch is:", branch);
+    println!("{0} {1}", "Current branch is:".bright_yellow(), branch.bright_yellow());
     return branch;
 }
 
@@ -46,7 +47,7 @@ pub fn git_commit(message: &str) {
     if !commit_status.status.success() {
         panic!("{:?}", String::from_utf8(commit_status.stderr).unwrap());
     }
-    println!("{0}", "Successfully committed your code!");
+    println!("{0}", "Successfully committed your code!".bright_yellow());
 }
 
 pub fn git_push(branch: &str) {
