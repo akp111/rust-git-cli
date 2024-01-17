@@ -12,5 +12,5 @@ fn run_git() {
 }
 fn main() {
     println!("{}","Welcome to GIT CLI!!".bright_green());
-    run_git();
+    run_git();;
 }
