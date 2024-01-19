@@ -1,11 +1,11 @@
 use colored::Colorize;
 
 pub mod git_helper;
-pub mod util_helper;
+pub mod utils_helper;
 
 fn run_git() {
     let branch = git_helper::get_current_branch();
-    let commit_message = util_helper::get_commit_message_from_user();
+    let commit_message = utils_helper::get_commit_message_from_user();
     git_helper::git_pull(&branch);
     git_helper::git_add();
     git_helper::git_commit(&commit_message);
